@@ -7,7 +7,7 @@ db.teams.updateOne(
     country: 'GERMANY'
   },
   {
-    $SET: {
+    $set: {
       team_name: 'BAYERN MUNICH'
     }
   }
@@ -20,7 +20,7 @@ db.teams.updateMany(
     country: 'GERMANY'
   },
   {
-    $SET: {
+    $set: {
       team_name: 'ALL_TEAM'
     }
   }

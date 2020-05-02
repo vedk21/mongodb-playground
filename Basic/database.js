@@ -13,3 +13,9 @@ db.teams.insert({
   won_the_competition: 1,
   current_champions: 0
 });
+
+// Drop the database
+db.dropDatabase();
+
+// Drop collection inside database
+db.teams.drop();
