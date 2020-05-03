@@ -23,3 +23,5 @@ db.teams.insertOne(
     }
   }
 );
+
+// Here in this example it is most likely that teams will be fetched along with the details, hence embedded document approach is used.

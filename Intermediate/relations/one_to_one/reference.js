@@ -27,3 +27,5 @@ db.stadiums.insertOne(
     capacity: NumberInt(82000)
   }
 );
+
+// Here in this example it is most likely that teams and stadium details will be fetched separately, hence reference ids approach is used.
