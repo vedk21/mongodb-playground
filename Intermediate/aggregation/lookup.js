@@ -30,7 +30,7 @@ db.books.insertMany(
     },
     {
       name: 'A Book 2',
-      price: 140.99,
+      current_price: 140.99,
       authors: [
         ObjectId('pl-1')
       ]
@@ -50,3 +50,10 @@ db.books.aggregate(
     }
   ]
 ).pretty();
+
+/* NOTE:
+  1. from - It is the target collection name
+  2. localField - field from current collection, which will be compared with the target collection
+  3. foreignField - field from target collection, with which the localField will be compared
+  4. as - alias field, which will be created to store the result of aggregate output
+*/
