@@ -1,21 +1,15 @@
 use shop;
 
-// Schema validation is used to validate the schema while inserting or updating the document into collection.
 // There are different validation levels
 /*
   1. strict - On both insert and update the validation will apply.
   2. moderate - Validation only applies your rules to new documents and existing valid documents. Existing invalid documents are not affected.
 */
 
-// There are different validation actions
-/*
-  1. error - It will throw an error, if validation fails (default action is error)
-  2. warn - It will log a warning, but will insert or update the document
-*/
-
-db.createCollection(
-  'books',
+// To change the configuration options which are already set for a collection we use 'runCommand'
+db.runCommand(
   {
+    collMod: 'books',
     validator: {
       $jsonSchema: {
         bsonType: 'object',
@@ -61,60 +55,9 @@ db.createCollection(
           }
         }
       }
-    }
+    },
+    validationLevel: 'moderate' // default is 'strict'
   }
 );
 
-
-// successful insert
-db.books.insertMany(
-  [
-    {
-      name: 'A Book 1',
-      current_price: NumberDecimal('120.99'),
-      authors: [
-        ObjectId('5eaecc331d7c6c034fe3e7ab'),
-        ObjectId('5eaecc331d7c6c034fe3e7aa'),
-      ],
-      reviews: [
-        {
-          reviewer: ObjectId('5ead2f251d7c6c034fe3e7a8'),
-          text: 'This book is good'
-        }
-      ]
-    },
-    {
-      name: 'A Book 2',
-      current_price: NumberDecimal('140.99'),
-      authors: [
-        ObjectId('5eaecc331d7c6c034fe3e7aa')
-      ]
-    }
-  ]
-);
-
-// invalid insert (text field is missing in reviews)
-db.books.insertMany(
-  [
-    {
-      name: 'A Book 1',
-      current_price: NumberDecimal('120.99'),
-      authors: [
-        ObjectId('5eaecc331d7c6c034fe3e7ab'),
-        ObjectId('5eaecc331d7c6c034fe3e7aa'),
-      ],
-      reviews: [
-        {
-          reviewer: ObjectId('5ead2f251d7c6c034fe3e7a8')
-        }
-      ]
-    },
-    {
-      name: 'A Book 2',
-      current_price: NumberDecimal('140.99'),
-      authors: [
-        ObjectId('5eaecc331d7c6c034fe3e7aa')
-      ]
-    }
-  ]
-);
+// NOTE: we can also set validationLevel to 'off', this will completely ignore validation rules
