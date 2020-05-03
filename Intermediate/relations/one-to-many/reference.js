@@ -20,11 +20,13 @@ db.cities.insertOne(
 );
 
 db.citizen.insertMany(
-  {
-    name: 'Steven Gerrad',
-    age: '34',
-    city_id: ObjectId('london_eng'),
-  }
+  [
+    {
+      name: 'Steven Gerrad',
+      age: '34',
+      city_id: ObjectId('london_eng'),
+    }
+  ]
 );
 
 // Here in this example it is most likely that cities and citizens details will be fetched separately, hence reference ids approach is used.
