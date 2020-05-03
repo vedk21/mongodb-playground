@@ -13,7 +13,7 @@ use census_details;
 // one-to-many relationship with reference ids
 db.cities.insertOne(
   {
-    _id: 'london_eng',
+    _id: ObjectId('london_eng'),
     name: 'London',
     country: 'ENGLAND'
   }
@@ -23,7 +23,7 @@ db.citizen.insertMany(
   {
     name: 'Steven Gerrad',
     age: '34',
-    city_id: 'london_eng',
+    city_id: ObjectId('london_eng'),
   }
 );
 

@@ -15,13 +15,13 @@ db.teams.insertOne(
   {
     team_name: 'MANCHESTER UNITED',
     country: 'ENGLAND',
-    stadium: 'old-trafford-1234'
+    stadium: ObjectId('old-trafford-1234')
   }
 );
 
 db.stadiums.insertOne(
   {
-    _id: 'old-trafford-1234',
+    _id: ObjectId('old-trafford-1234'),
     stadium_name: 'OLD TRAFFORD',
     location: 'Manchester, England',
     capacity: NumberInt(82000)
