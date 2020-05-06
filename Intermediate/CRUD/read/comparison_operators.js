@@ -22,14 +22,14 @@ db.tv_series.find(
 // for embedded arrays
 db.tv_series.find(
   {
-    'genres': 'Horror' // this will look for 'Horror' in the array
+    genres: 'Horror' // this will look for 'Horror' in the array
   }
 );
 
 // Compare between set of values
 db.tv_series.find(
   {
-    'genres': {
+    genres: {
       $in: ['Horror', 'Drama'] // this will return genres with either 'Horror' or 'Drama' or both
     }
   }
@@ -38,7 +38,7 @@ db.tv_series.find(
 // opposite of $in is $nin
 db.tv_series.find(
   {
-    'genres': {
+    genres: {
       $nin: ['Horror', 'Drama'] // this will return genres anything but 'Horror' and 'Drama'
     }
   }
