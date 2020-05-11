@@ -27,3 +27,21 @@ db.tv_series.updateOne(
     }
   }
 );
+
+// if we want to update a document and add the document if it doesn't exists
+db.tv_series.updateOne(
+  {
+    name: 'The Last Ship 1'
+  },
+  {
+    $set: {
+      rating: {
+        average: 6.7
+      },
+      weight: 40, // this will rename weight to 'total_weight' in document
+    }
+  },
+  {
+    upsert: true // default value is false
+  }
+);
