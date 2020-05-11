@@ -26,4 +26,4 @@ db.teams.updateMany(
   }
 );
 
-// NOTE: $ works as a placeholder - representing the matched document inside an array
+// NOTE: $ works as a placeholder - representing the first matched document inside an array
