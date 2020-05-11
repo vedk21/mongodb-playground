@@ -65,3 +65,18 @@ db.teams.updateMany(
     }
   }
 );
+
+// $addToSet - adds new document only if unique
+db.teams.updateMany(
+  {
+    "team_name" : "DORTMUND"
+  },
+  {
+    $addToSet: { // adds the document only if not present already
+      matches: {
+        stadium: 'Allianz Arena',
+        is_interview_scheduled: false
+      }
+    }
+  }
+);
