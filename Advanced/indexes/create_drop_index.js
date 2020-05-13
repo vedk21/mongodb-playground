@@ -24,4 +24,9 @@ db.contacts.dropIndex(
 // we can also list down all the indexes
 db.contacts.getIndexes();
 
+// we can also drop with index name (we can get name from getIndexes() details)
+db.contacts.dropIndex(
+  "dob.age_1"
+);
+
 // NOTE: There is already a default index created by mongoDB on every collection for _id field.
