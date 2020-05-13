@@ -45,3 +45,18 @@ db.contacts.createIndex(
 
 // NOTE: This makes sure that document with no email field will not be saved for indexing. Hence we can have multiple documents without email.
 // If we don't use that partialFilterExpression, then mongoDB will throw an error while inserting multiple documents without email field as it will use no email field as unique index also.
+
+// time-to-live indexes
+// we can use indexes to remove documents from collection once expired using 'expireAfterSeconds'
+db.contacts.createIndex(
+  {
+    createdAt: 1
+  },
+  {
+    expireAfterSeconds: 300
+  }
+);
+
+// This will delete documents which has been created before 5 minutes
+
+// NOTE: this index only works on date fields and non-compound indexes
